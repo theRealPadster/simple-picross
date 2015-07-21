@@ -13,7 +13,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tutorial"
+            android:text="Test"
             android:id="@+id/startButton"
             android:onClick="startMyIntro"
             android:enabled="true"
