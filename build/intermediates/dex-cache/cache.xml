@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-5a30912d4376f9e54a20c5547330733a1d400f79.jar" />
+    </item>
+    <item
+        jar="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/exploded-aar/com.github.paolorotolo/appintro/3.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d181a639a6167b6310924e354914daa658e6737c">
+        <dex dex="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/pre-dexed/debug/classes-11baefdfef52435f03098ed6c085360c068e4870.jar" />
+    </item>
+    <item
+        jar="/home/padster/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-db4c0b5d7427ca9235cfdc271cda4074c776519c.jar" />
+    </item>
+    <item
+        jar="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/pre-dexed/debug/classes-dfec8724a9813d4c21f4adb9bd1e4134b6a2a760.jar" />
+    </item>
+    <item
+        jar="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/pre-dexed/debug/classes-61e705a4f25f870e4ee4b84de1a88ddb9d846918.jar" />
+    </item>
+    <item
+        jar="/home/padster/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/pre-dexed/debug/library-2.4.0-972afc702f98a40cff938d62b77fba299d58c6ae.jar" />
+    </item>
+    <item
+        jar="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/pre-dexed/debug/classes-17e7ddec70bc234fcd806504747b9ac2df0850c6.jar" />
+    </item>
+    <item
+        jar="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
+        <dex dex="/home/padster/Android/AndroidStudioProjects/SimplePicross/app/build/intermediates/pre-dexed/debug/classes-8aeca098e38d329dab019a6253a80246d3371e8e.jar" />
+    </item>
+
+</items>
