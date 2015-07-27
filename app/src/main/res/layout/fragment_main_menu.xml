@@ -1,6 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="activity.main_menu">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="activity.MainActivity">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -13,65 +15,52 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tutorial"
-            android:id="@+id/startButton"
-            android:onClick="startMyIntro"
-            android:enabled="true"
-            android:layout_below="@+id/tool_bar"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Continue"
             android:id="@+id/continueButton"
-            android:clickable="true"
-            android:enabled="true"
-            android:onClick="startMyIntro"
-            android:textAlignment="center"
-            android:textStyle="normal"
-            android:layout_margin="10dp" />
+            android:layout_gravity="center_horizontal"
+            style="@style/Base.Widget.AppCompat.Button.Borderless" />
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Levels"
             android:id="@+id/levelButton"
-            android:clickable="true"
-            android:enabled="true"
-            android:textStyle="normal"
-            android:layout_margin="10dp" />
-        <TextView
+            android:layout_gravity="center_horizontal"
+            style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Generate"
             android:id="@+id/generateButton"
-            android:clickable="true"
-            android:enabled="true"
-            android:textStyle="normal"
-            android:layout_margin="10dp" />
-        <TextView
+            android:layout_gravity="center_horizontal"
+            style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Settings"
             android:id="@+id/settingsButton"
-            android:clickable="true"
-            android:enabled="true"
-            android:textStyle="normal"
-            android:layout_margin="10dp" />
-        <TextView
+            android:layout_gravity="center_horizontal"
+            style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="About"
             android:id="@+id/aboutButton"
-            android:clickable="true"
-            android:enabled="true"
-            android:textStyle="normal"
-            android:layout_margin="10dp" />
+            android:layout_gravity="center_horizontal"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:onClick="startMyIntro" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tutorial"
+            android:id="@+id/tutorialButton"
+            android:layout_gravity="center_horizontal"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:onClick="startMyIntro" />
 
     </LinearLayout>
 
