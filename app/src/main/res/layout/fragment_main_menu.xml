@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     tools:context="activity.MainActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,32 +33,6 @@
             android:id="@+id/generateButton"
             android:layout_gravity="center_horizontal"
             style="@style/Base.Widget.AppCompat.Button.Borderless" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Settings"
-            android:id="@+id/settingsButton"
-            android:layout_gravity="center_horizontal"
-            style="@style/Base.Widget.AppCompat.Button.Borderless" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About"
-            android:id="@+id/aboutButton"
-            android:layout_gravity="center_horizontal"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:onClick="startMyIntro" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tutorial"
-            android:id="@+id/tutorialButton"
-            android:layout_gravity="center_horizontal"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:onClick="startMyIntro" />
 
     </LinearLayout>
 
