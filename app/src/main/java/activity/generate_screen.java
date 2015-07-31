@@ -54,6 +54,7 @@ public class generate_screen extends Fragment {
         // Required empty public constructor
     }
 
+    //TODO - create listeners for sliders
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

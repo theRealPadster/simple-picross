@@ -13,18 +13,9 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="left|top">
-
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="GENERATE SCREEN!"
-                style="@style/Base.TextAppearance.AppCompat.Inverse" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="left|top">
+            android:layout_gravity="left|top"
+            android:paddingBottom="20dp"
+            android:paddingLeft="6dp">
 
             <TextView android:layout_width="match_parent" android:layout_height="match_parent"
                 android:text="Generate a custom picross puzzle"
@@ -35,22 +26,67 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="left|top">
+            android:layout_gravity="left|top"
+            android:paddingBottom="20dp"
+            android:paddingLeft="6dp">
 
             <TextView android:layout_width="match_parent" android:layout_height="match_parent"
                 android:text="Rows:"
+                style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+            <!--TODO - use NumberPicker-->
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rowSlider"
+
+                android:minWidth="100dp"
+                android:max="16" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top"
+            android:paddingBottom="20dp"
+            android:paddingLeft="6dp">
+
+            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                android:text="Columns:"
+                style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+            <!--TODO - use NumberPicker-->
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/colSlider"
+
+                android:minWidth="100dp"
+                android:max="16" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top"
+            android:paddingBottom="20dp"
+            android:paddingLeft="6dp">
+
+            <TextView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Difficulty:"
                 style="@style/Base.TextAppearance.AppCompat.Inverse" />
 
             <!--TODO - get this to fill properly, not hardcode size-->
             <SeekBar
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/seekBar"
+                android:id="@+id/diffSlider"
 
-                android:minWidth="70dp" />
+                android:minWidth="100dp"
+                android:max="3" />
 
         </TableRow>
-
 
 
     </TableLayout>
