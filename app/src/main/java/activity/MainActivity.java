@@ -1,6 +1,7 @@
 package activity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -159,6 +161,18 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
     }
 
+    //needs View v to be run from onclick
+    public void launchGenerate(View v){
+        Fragment fragment = new generate_screen();
+        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        getSupportActionBar().setTitle("Generate");
+
+        //TODO - only run on API level >= 21
+        findViewById(R.id.tool_bar).setElevation(0);
+    }
+
     public int getCurrFrag(){
         return currFrag;
     }
@@ -206,6 +220,10 @@ public class MainActivity extends AppCompatActivity {
 
             if (position != 3){ //TODO - for tutorial, change later
                 fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                //TODO - only run on API level >= 21
+                Resources r = getResources(); //convert dp to px, TODO - set this once, reference 1dp value for device
+                float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, r.getDisplayMetrics());
+                findViewById(R.id.tool_bar).setElevation(px);
                 // TODO - this doesn't trigger "already on page" when clicking unset button
                 setCurrFrag(position);
             }

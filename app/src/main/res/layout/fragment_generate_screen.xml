@@ -1,0 +1,58 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="activity.main_menu"
+    android:background="@color/colorPrimary">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|top">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="GENERATE SCREEN!"
+                style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top">
+
+            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                android:text="Generate a custom picross puzzle"
+                style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top">
+
+            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                android:text="Rows:"
+                style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+            <!--TODO - get this to fill properly, not hardcode size-->
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/seekBar"
+
+                android:minWidth="70dp" />
+
+        </TableRow>
+
+
+
+    </TableLayout>
+
+</FrameLayout>

@@ -32,7 +32,8 @@
             android:text="Generate"
             android:id="@+id/generateButton"
             android:layout_gravity="center_horizontal"
-            style="@style/Base.Widget.AppCompat.Button.Borderless" />
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:onClick="launchGenerate" />
 
     </LinearLayout>
 
