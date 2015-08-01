@@ -208,6 +208,9 @@ public class MainActivity extends AppCompatActivity {
                     fragmentClass = about_screen.class;
                     getSupportActionBar().setTitle("About");
                     //TODO - make toolbar icon into back icon
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    //TODO - make it function to take you back to main_menu
+
                     break;
                 default:
                     //TODO - this is disgusting, only set intent and start activity once
