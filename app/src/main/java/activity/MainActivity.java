@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -227,8 +228,8 @@ public class MainActivity extends AppCompatActivity {
 
             FragmentManager fragmentManager = this.getSupportFragmentManager();
 
-            if (position != 3){ //TODO - for tutorial, change later
-                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+            if (position != 3){ //TODO - for tutorial, change later, tweak the addToBackStack stuff
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
                 //TODO - only run on API level >= 21
                 Resources r = getResources(); //convert dp to px, TODO - set this once, reference 1dp value for device
                 float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, r.getDisplayMetrics());
@@ -242,5 +243,16 @@ public class MainActivity extends AppCompatActivity {
            Toast.makeText(MainActivity.this, "Already on page: " + position, Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override //TODO - tweak this, make it work all the time
+    public void onBackPressed() {
+        if (Drawer.isDrawerOpen(GravityCompat.START))
+            Drawer.closeDrawers();
+        else if (getFragmentManager().getBackStackEntryCount()>0)
+            getFragmentManager().popBackStack();
+        else
+            super.onBackPressed();
+    }
+
 
 }
