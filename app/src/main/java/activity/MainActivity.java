@@ -163,14 +163,20 @@ public class MainActivity extends AppCompatActivity {
 
     //needs View v to be run from onclick
     public void launchGenerate(View v){
+        /*
         Fragment fragment = new generate_screen();
         FragmentManager fragmentManager = this.getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-
-        getSupportActionBar().setTitle("Generate");
+        */
 
         //TODO - only run on API level >= 21
         findViewById(R.id.tool_bar).setElevation(0);
+
+        //TODO - can get NumberPicker working on activity, not fragment
+        Intent intent = new Intent(this, GenerateActivity.class);// Create the intent
+        startActivity(intent);// Start activity
+
+        getSupportActionBar().setTitle("Generate");
     }
 
     public int getCurrFrag(){

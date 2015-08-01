@@ -1,0 +1,125 @@
+<android.support.v4.widget.DrawerLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/DrawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="7dp"
+    android:fitsSystemWindows="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar">
+        </include>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top"
+            android:background="@color/colorPrimary">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left|top"
+                android:paddingBottom="20dp"
+                android:paddingLeft="6dp">
+
+                <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:text="Generate a custom picross puzzle"
+                    style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+                <NumberPicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/numberPicker"
+                    android:layout_column="1" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left|top"
+                android:paddingBottom="20dp"
+                android:paddingLeft="6dp">
+
+                <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:text="Rows:"
+                    style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+                <!--TODO - use NumberPicker-->
+                <SeekBar
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rowSlider"
+
+                    android:minWidth="100dp"
+                    android:max="16" />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left|top"
+                android:paddingBottom="20dp"
+                android:paddingLeft="6dp">
+
+                <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:text="Columns:"
+                    style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+                <!--TODO - use NumberPicker-->
+                <SeekBar
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/colSlider"
+
+                    android:minWidth="100dp"
+                    android:max="16" />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left|top"
+                android:paddingBottom="20dp"
+                android:paddingLeft="6dp">
+
+                <TextView android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Difficulty:"
+                    style="@style/Base.TextAppearance.AppCompat.Inverse" />
+
+                <!--TODO - get this to fill properly, not hardcode size-->
+                <SeekBar
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/diffSlider"
+
+                    android:minWidth="100dp"
+                    android:max="3" />
+
+            </TableRow>
+
+
+        </TableLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RecyclerView"
+        android:layout_width="@dimen/nav_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+
+        android:background="#ffffff"
+        android:scrollbars="vertical">
+
+    </android.support.v7.widget.RecyclerView>
+
+</android.support.v4.widget.DrawerLayout>

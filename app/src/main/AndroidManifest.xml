@@ -23,8 +23,8 @@
             android:label="@string/title_activity_my_intro" >
         </activity>
         <activity
-            android:name="activity.About"
-            android:label="@string/title_activity_about" >
+            android:name="activity.GenerateActivity"
+            android:label="@string/title_activity_generate" >
         </activity>
     </application>
 
