@@ -5,7 +5,6 @@
     <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
 
     </style>
-<!--TODO - recents/overview screen header bar isn't coloured anymore...-->
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>

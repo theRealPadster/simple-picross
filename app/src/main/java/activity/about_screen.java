@@ -24,8 +24,6 @@ public class about_screen extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private static final int fragNumber = 5;
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -115,9 +113,5 @@ public class about_screen extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
-    }
-
-    public int getFragNum(){
-        return fragNumber;
     }
 }

@@ -22,9 +22,6 @@ import android.widget.Toast;
 import com.example.padster.simplepicross.MyIntro;
 import com.example.padster.simplepicross.R;
 
-import java.lang.reflect.Array;
-
-
 public class MainActivity extends AppCompatActivity {
 
     //First We Declare Titles And Icons For Our Navigation Drawer List View
@@ -33,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     String TITLES[] = {"Home","Achievements","Tutorial","Settings","About"};
     String[] FragNames = {"Profile Header","Simple Picross","Achievements","Tutorial","Settings","About"};
     //TODO - change to fragments, array?
-    int currFrag = 1;
+
     int ICONS[] = {R.drawable.ic_action_home,R.drawable.ic_action_achievements,R.drawable.ic_action_help,R.drawable.ic_action_settings,R.drawable.ic_action_about};
 
     //Similarly we Create a String Resource for the name and email in the header view
@@ -195,14 +192,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Generate");
     }
 
-    public int getCurrFrag(){
-        return currFrag;
-    }
-
-    public void setCurrFrag(int currFrag){
-        this.currFrag = currFrag;
-    }
-
     public void onTouchDrawer(final int position){
         if (getSupportActionBar().getTitle() != FragNames[position]) { //TODO - re-tool logic here, make it grab it from active fragment somehow
 
@@ -226,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
                 case 5:
                     whichFragment = "about_screen";
                     fragmentClass = about_screen.class;
-                    //TODO - make toolbar icon into back icon
+                    // make toolbar icon into back icon
                     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                     //TODO - make it function to take you back to main_menu
                     break;
@@ -255,10 +244,6 @@ public class MainActivity extends AppCompatActivity {
                     float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, r.getDisplayMetrics());
                     findViewById(R.id.tool_bar).setElevation(px);
                 }
-
-                // TODO - this has been changed to reading the Toolbar title for now
-                // TODO - this doesn't trigger "already on page" when clicking unset button
-                // setCurrFrag(position);
             }
         }
         else
@@ -271,11 +256,12 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (Drawer.isDrawerOpen(GravityCompat.START))
             Drawer.closeDrawers();
-        else if (getFragmentManager().getBackStackEntryCount()>0) {  //TODO - set title back, too
+        else if (getFragmentManager().getBackStackEntryCount()>0) {
 
             getFragmentManager().popBackStack();
 
-            //TODO - doesn't seem to do any of this for some reason
+            /*TODO - doesn't seem to do any of this for some reason,
+                possible cleaner solution to finding which fragment is open
             Toast.makeText(this, "onBackPressed", Toast.LENGTH_SHORT).show();
 
             String title = (String) getSupportActionBar().getTitle();
@@ -286,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (f == null)
                 Toast.makeText(MainActivity.this, "onBackPressed, f == null" , Toast.LENGTH_SHORT).show();
+            */
         }
         else
             super.onBackPressed();
