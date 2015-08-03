@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.padster.simplepicross.R;
 
@@ -61,9 +62,6 @@ public class main_menu extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        // this can access the toolbar from within a fragment!
-        ((activity.MainActivity)this.getActivity()).getSupportActionBar().setTitle("Simple Picross");
     }
 
     @Override
@@ -82,6 +80,7 @@ public class main_menu extends Fragment {
 
     @Override
     public void onAttach(Activity activity) {
+
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
@@ -89,6 +88,14 @@ public class main_menu extends Fragment {
             /*throw new ClassCastException(activity.toString() TODO - this causes it to crash!
                     + " must implement OnFragmentInteractionListener");*/
         }
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        // this can access the toolbar from within a fragment!
+        ((activity.MainActivity)this.getActivity()).getSupportActionBar().setTitle("Simple Picross");
     }
 
     @Override

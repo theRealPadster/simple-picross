@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(MainActivity.this, "navIconClicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "navIconClicked", Toast.LENGTH_SHORT).show();
 
                 //if at menu
                 if (getSupportActionBar().getTitle() == "Simple Picross")
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
                     onBackPressed();
                 }
-                // TODO - need this somehow?
+                // TODO - do I need this somehow?
                 // mActionBarDrawerToggle.syncState();
             }
         });
@@ -273,12 +273,7 @@ public class MainActivity extends AppCompatActivity {
             Drawer.closeDrawers();
         else if (getFragmentManager().getBackStackEntryCount()>0) {  //TODO - set title back, too
 
-            //getFragmentManager().popBackStack();
-
-            onTouchDrawer(1);
-
-            // TODO - only keep BackStack layer 1 or just go to menu
-            // TODO - otherwise if you go onback and forth via the drawer it builds a big list of repeats
+            getFragmentManager().popBackStack();
 
             //TODO - doesn't seem to do any of this for some reason
             Toast.makeText(this, "onBackPressed", Toast.LENGTH_SHORT).show();
@@ -295,6 +290,4 @@ public class MainActivity extends AppCompatActivity {
         else
             super.onBackPressed();
     }
-
-
 }
