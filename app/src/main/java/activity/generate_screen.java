@@ -62,6 +62,9 @@ public class generate_screen extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        // this can access the toolbar from within a fragment!
+        ((activity.MainActivity)this.getActivity()).getSupportActionBar().setTitle("Generate");
     }
 
     @Override

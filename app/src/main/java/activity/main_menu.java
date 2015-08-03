@@ -61,6 +61,9 @@ public class main_menu extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        // this can access the toolbar from within a fragment!
+        ((activity.MainActivity)this.getActivity()).getSupportActionBar().setTitle("Simple Picross");
     }
 
     @Override
@@ -112,5 +115,4 @@ public class main_menu extends Fragment {
     public static int getFragNum(){
         return fragNumber;
     }
-
 }

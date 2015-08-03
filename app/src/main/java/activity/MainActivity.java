@@ -22,6 +22,8 @@ import android.widget.Toast;
 import com.example.padster.simplepicross.MyIntro;
 import com.example.padster.simplepicross.R;
 
+import java.lang.reflect.Array;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     //This Icons And Titles Are holded in an Array as you can see
 
     String TITLES[] = {"Home","Achievements","Tutorial","Settings","About"};
+    String[] FragNames = {"Profile Header","Simple Picross","Achievements","Tutorial","Settings","About"};
     //TODO - change to fragments, array?
     int currFrag = 1;
     int ICONS[] = {R.drawable.ic_action_home,R.drawable.ic_action_achievements,R.drawable.ic_action_help,R.drawable.ic_action_settings,R.drawable.ic_action_about};
@@ -126,6 +129,27 @@ public class MainActivity extends AppCompatActivity {
         }; // Drawer Toggle Object Made
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
+
+         /* TODO - this catches the icon presses, but it won't get back to*/
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this, "navIconClicked", Toast.LENGTH_SHORT).show();
+
+                //if at menu
+                if (getSupportActionBar().getTitle() == "Simple Picross")
+                    Drawer.openDrawer(GravityCompat.START); //open drawer
+                else //load menu
+                {
+                    //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+                    onBackPressed();
+                }
+                // TODO - need this somehow?
+                // mActionBarDrawerToggle.syncState();
+            }
+        });
     }
 
     /* TODO - don't need menu, but for completeness... the R.menu.menu_main isn't found...
@@ -180,33 +204,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTouchDrawer(final int position){
-        if (position != getCurrFrag()) { //TODO - re-tool logic here, make it grab it from active fragment somehow
+        if (getSupportActionBar().getTitle() != FragNames[position]) { //TODO - re-tool logic here, make it grab it from active fragment somehow
 
             Fragment fragment = null;
             Class fragmentClass = null;
+
+            //tags for fragments, possible helpful in the future
+            String whichFragment = "";
 
             switch (position)
             {
                 case 1:
                     //fragment = new main_menu(); //can do it this way, or with class thing
+                    whichFragment = "main_menu";
                     fragmentClass = main_menu.class;
-                    getSupportActionBar().setTitle("Simple Picross");
                     break;
                 case 3:
                     Intent intent3 = new Intent(this, MyIntro.class);// Create the intent
                     startActivity(intent3);// Start activity
                     break;
                 case 5:
+                    whichFragment = "about_screen";
                     fragmentClass = about_screen.class;
-                    getSupportActionBar().setTitle("About");
                     //TODO - make toolbar icon into back icon
                     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                     //TODO - make it function to take you back to main_menu
-
                     break;
                 default:
                     //TODO - this is disgusting, only set intent and start activity once
                     Toast.makeText(MainActivity.this, "The item clicked is: " + position, Toast.LENGTH_SHORT).show();
+                    whichFragment = "main_menu";
                     fragmentClass = main_menu.class;
                     break;
             }
@@ -220,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fragmentManager = this.getSupportFragmentManager();
 
             if (position != 3){ //TODO - for tutorial, change later, tweak the addToBackStack stuff
-                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment, whichFragment).addToBackStack(null).commit();
 
                 //only run on lollipop
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -229,13 +256,14 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.tool_bar).setElevation(px);
                 }
 
+                // TODO - this has been changed to reading the Toolbar title for now
                 // TODO - this doesn't trigger "already on page" when clicking unset button
-                setCurrFrag(position);
+                // setCurrFrag(position);
             }
         }
         else
         {
-           Toast.makeText(MainActivity.this, "Already on page: " + position, Toast.LENGTH_SHORT).show();
+           Toast.makeText(MainActivity.this, "Already on: " + FragNames[position], Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -243,8 +271,27 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (Drawer.isDrawerOpen(GravityCompat.START))
             Drawer.closeDrawers();
-        else if (getFragmentManager().getBackStackEntryCount()>0)
-            getFragmentManager().popBackStack();
+        else if (getFragmentManager().getBackStackEntryCount()>0) {  //TODO - set title back, too
+
+            //getFragmentManager().popBackStack();
+
+            onTouchDrawer(1);
+
+            // TODO - only keep BackStack layer 1 or just go to menu
+            // TODO - otherwise if you go onback and forth via the drawer it builds a big list of repeats
+
+            //TODO - doesn't seem to do any of this for some reason
+            Toast.makeText(this, "onBackPressed", Toast.LENGTH_SHORT).show();
+
+            String title = (String) getSupportActionBar().getTitle();
+            Fragment f = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+            if (f instanceof main_menu)
+            {
+                Toast.makeText(MainActivity.this, "onBackPressed, main_menu open" , Toast.LENGTH_SHORT).show();
+            }
+            else if (f == null)
+                Toast.makeText(MainActivity.this, "onBackPressed, f == null" , Toast.LENGTH_SHORT).show();
+        }
         else
             super.onBackPressed();
     }
