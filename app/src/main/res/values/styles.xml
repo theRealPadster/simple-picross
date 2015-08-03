@@ -9,9 +9,12 @@
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+
+        <!--TODO - for some reason these need to be declared in each styles.xml file-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
         <item name="android:navigationBarColor" tools:targetApi="21">#ff617e8c</item>
     </style>
 

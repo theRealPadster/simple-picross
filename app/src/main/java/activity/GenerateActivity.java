@@ -2,6 +2,7 @@ package activity;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -175,8 +176,9 @@ public class GenerateActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Generate");
 
-        //TODO - only run on API level >= 21
-        findViewById(R.id.tool_bar).setElevation(0);
+        //only run on lollipop
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            findViewById(R.id.tool_bar).setElevation(0);
     }
 
     public int getCurrFrag(){

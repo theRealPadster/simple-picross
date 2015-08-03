@@ -2,6 +2,7 @@ package activity;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -57,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = this.getSupportFragmentManager();
         fragmentManager.beginTransaction().add(R.id.content_frame, fragment).commit();
-
 
     /* Assigning the toolbar object ot the view
     and setting the the Action bar to our toolbar
@@ -151,16 +151,6 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     */
-    public void startMyIntro(View v){
-        Intent intent = new Intent(this, MyIntro.class);
-        startActivity(intent);
-    }
-
-    public void launchAbout(){
-        Fragment fragment = new about_screen();
-        FragmentManager fragmentManager = this.getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-    }
 
     //needs View v to be run from onclick
     public void launchGenerate(View v){
@@ -170,8 +160,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
         */
 
-        //TODO - only run on API level >= 21
-        findViewById(R.id.tool_bar).setElevation(0);
+        //only run on lollipop
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            findViewById(R.id.tool_bar).setElevation(0);
 
         //TODO - can get NumberPicker working on activity, not fragment
         Intent intent = new Intent(this, GenerateActivity.class);// Create the intent
@@ -230,10 +221,14 @@ public class MainActivity extends AppCompatActivity {
 
             if (position != 3){ //TODO - for tutorial, change later, tweak the addToBackStack stuff
                 fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
-                //TODO - only run on API level >= 21
-                Resources r = getResources(); //convert dp to px, TODO - set this once, reference 1dp value for device
-                float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, r.getDisplayMetrics());
-                findViewById(R.id.tool_bar).setElevation(px);
+
+                //only run on lollipop
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    Resources r = getResources(); //convert dp to px, TODO - set this once, reference 1dp value for device
+                    float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, r.getDisplayMetrics());
+                    findViewById(R.id.tool_bar).setElevation(px);
+                }
+
                 // TODO - this doesn't trigger "already on page" when clicking unset button
                 setCurrFrag(position);
             }
