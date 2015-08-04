@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.GestureDetector;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -140,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 else //load menu
                 {
                     //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                    //getSupportActionBar().setHomeButtonEnabled(false);
 
                     onBackPressed();
                 }
@@ -216,12 +218,12 @@ public class MainActivity extends AppCompatActivity {
                     whichFragment = "about_screen";
                     fragmentClass = about_screen.class;
                     // make toolbar icon into back icon
-                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                     //TODO - make it function to take you back to main_menu
                     break;
                 default:
                     //TODO - this is disgusting, only set intent and start activity once
-                    Toast.makeText(MainActivity.this, "The item clicked is: " + position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "The item clicked is: " + FragNames[position], Toast.LENGTH_SHORT).show();
                     whichFragment = "main_menu";
                     fragmentClass = main_menu.class;
                     break;
@@ -259,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
         else if (getFragmentManager().getBackStackEntryCount()>0) {
 
             getFragmentManager().popBackStack();
+            mDrawerToggle.syncState();
 
             /*TODO - doesn't seem to do any of this for some reason,
                 possible cleaner solution to finding which fragment is open

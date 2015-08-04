@@ -92,6 +92,7 @@ public class about_screen extends Fragment {
         super.onResume();
         // this can access the toolbar from within a fragment!
         ((activity.MainActivity)this.getActivity()).getSupportActionBar().setTitle("About");
+        ((activity.MainActivity)this.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

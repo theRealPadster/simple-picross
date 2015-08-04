@@ -94,6 +94,7 @@ public class main_menu extends Fragment {
         super.onResume();
         // this can access the toolbar from within a fragment!
         ((activity.MainActivity)this.getActivity()).getSupportActionBar().setTitle("Simple Picross");
+        //((activity.MainActivity)this.getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     @Override
